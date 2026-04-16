@@ -8,19 +8,19 @@ Movieland is a web application that allows users to explore and discover informa
 The platform features a search functionality for finding movies or series instantly, along with a curated list of popular content. It also integrates external APIs to deliver real-time data and enhance user experience.
 
 
-🚀 Key Features
-🔍 Search movies and TV shows بسهولة
-⭐ View ratings (IMDb, Rotten Tomatoes, Metacritic)
-📅 Access release dates and plot summaries
-📈 View popularity trends over time
-🎬 Browse popular and trending titles
+🚀 Key Features \
+🔍 Search movies and TV shows \بسهولة
+⭐ View ratings (IMDb, Rotten Tomatoes, Metacritic) \
+📅 Access release dates and plot summaries \
+📈 View popularity trends over time \
+🎬 Browse popular and trending titles \
 
 🛠️ Tech Stack
-Backend: Node.js, Express.js
-Frontend: HTML, CSS, Bootstrap
-Templating: EJS
-APIs: MovieDB, OMDb, Google Trends API
-Others: Chart.js, jQuery
+Backend: Node.js, Express.js\
+Frontend: HTML, CSS, Bootstrap \
+Templating: EJS \
+APIs: MovieDB, OMDb, Google Trends API \
+Others: Chart.js, jQuery \
 
 💡 Purpose
 
