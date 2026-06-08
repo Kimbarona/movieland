@@ -3,12 +3,12 @@ import './App.css';
 import SearchIcon from './search.svg';
 import MovieCard from './MovieCard';
 
-// 2c8ad7fc
-const API_URL = 'http://www.omdbapi.com?apikey=2c8ad7fc';
+const API_URL = `https://www.omdbapi.com?apikey=${process.env.REACT_APP_OMDB_API_KEY}`;
 
 const App = () => {
   const [movies, setMovies] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
   const searchMovies = async(title) => {
     const response = await fetch(`${API_URL}&s=${title}`);
@@ -45,7 +45,7 @@ const App = () => {
         (
           <div className='container'>
             {movies.map((movie) => (
-              <MovieCard movie={movie}/>
+              <MovieCard key={movie.imdbID} movie={movie} onClick={() => setSelectedMovie(movie)}/>
             ))}
           </div>
         ):(
@@ -55,7 +55,33 @@ const App = () => {
         )
       }
 
-     
+      {selectedMovie && (
+        <div className="overlay" onClick={() => setSelectedMovie(null)}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            <button className="close-btn" onClick={() => setSelectedMovie(null)}>&times;</button>
+            <div className="modal-content">
+              <img
+                src={selectedMovie.Poster !== 'N/A' ? selectedMovie.Poster : 'https://via.placeholder.com/300x450?text=No+Poster'}
+                alt={selectedMovie.Title}
+                className="modal-poster"
+              />
+              <div className="modal-info">
+                <h2>{selectedMovie.Title}</h2>
+                <p className="modal-year">{selectedMovie.Year}</p>
+                <p className="modal-type">{selectedMovie.Type}</p>
+                <a
+                  className="watch-btn"
+                  href={`https://www.youtube.com/results?search_query=${encodeURIComponent(selectedMovie.Title + ' official trailer')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  ▶ Watch Trailer on YouTube
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
 
   );

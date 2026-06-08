@@ -1,8 +1,8 @@
 import React from 'react'
 
-const MovieCard = ({movie}) => {
+const MovieCard = ({movie, onClick}) => {
   return (
-    <div className='movie'>
+    <div className='movie' onClick={onClick} style={{cursor: 'pointer'}}>
         <div>
             <p>{movie.Year}</p>
         </div> 
